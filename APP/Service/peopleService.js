@@ -7,21 +7,21 @@ module.exports = {
         let mongo_connection = connectFactory.getMongoDB_Connection();
         let mongo_peopleDAO = daoFactory.getMongo_PeopleDAO();
 
-        let connect = await mongo_connection.connect();
+        await mongo_connection.connect();
 
-        await mongo_peopleDAO.doCreate(connect, people);
+        await mongo_peopleDAO.doCreate(mongo_connection.connection, people);
 
-        await mongo_connection.close(connect);
+        //await mongo_connection.close(mongo_connection.connection);
     },
     async getPeople(id) {
         let mongo_connection = connectFactory.getMongoDB_Connection();
         let mongo_peopleDAO = daoFactory.getMongo_PeopleDAO();
 
-        let connect = await mongo_connection.connect();
+        await mongo_connection.connect();
 
-        let result = await mongo_peopleDAO.doRead(connect, id);
+        let result = await mongo_peopleDAO.doRead(mongo_connection.connection, id);
 
-        await mongo_connection.close(connect);
+        //await mongo_connection.close(mongo_connection.connection);
 
         return result;
     },
@@ -29,11 +29,11 @@ module.exports = {
         let mongo_connection = connectFactory.getMongoDB_Connection();
         let mongo_peopleDAO = daoFactory.getMongo_PeopleDAO();
 
-        let connect = await mongo_connection.connect();
+        await mongo_connection.connect();
 
-        let result = await mongo_peopleDAO.getAll(connect);
+        let result = await mongo_peopleDAO.getAll(mongo_connection.connection);
 
-        await mongo_connection.close(connect);
+        //await mongo_connection.close(mongo_connection.connection);
 
         return result;
     }

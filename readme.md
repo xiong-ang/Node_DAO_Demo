@@ -23,6 +23,7 @@
     * 连接MongoDB和MySQL
     * Service可以理解成model层的facade
     * Controller可以理解成View层的adapter
+    * 为了提高性能，数据库连接管理可以做优化，只连接一次
 
 ## Reference
     * https://blog.csdn.net/coderbruis/article/details/72723840
